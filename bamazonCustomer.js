@@ -1,6 +1,8 @@
 const mysql = require("mysql");
 
-const inquirer = require("inquirer")
+const inquirer = require("inquirer");
+
+const cartArray = [];
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -15,8 +17,6 @@ connection.connect(function (err) {
     console.log("Connected as id " + connection.threadId + "\n");
     buyProduct();
 });
-
-var cartArray = [];
 
 function buyProduct(){
     connection.query("SELECT * FROM products", function(err, results){
