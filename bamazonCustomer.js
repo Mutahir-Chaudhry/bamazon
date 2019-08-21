@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
 
 connection.connect(function (err) {
     if (err) throw err;
-    console.log("connected as id " + connection.threadId + "\n");
+    console.log("Connected as id " + connection.threadId + "\n");
     buyProduct();
 });
 
@@ -67,12 +67,12 @@ function buyProduct(){
                                type:"rawlist",
                                message:"Would you like to keep shopping?",
                                choices:[
-                                   "Yes",
-                                   "No"
+                                   "Yes, I would like to keep shopping!",
+                                   "Check me out please!"
                                 ]
                            }
                        ]).then(function(answer){
-                           if (answer.action === "Yes"){
+                           if (answer.action === "Yes, I would like to keep shopping!"){
                             cartArray.push(price)
                             console.log("Enjoy your shopping!\n")
                             buyProduct();
